@@ -1,18 +1,9 @@
 ## Feedback
 
-- the name of your `App` directory should be lower cased to align with convention
+_self on line 13 is actually referring to the Recipe Class and that is how we're able to add the `.all` method to that class. It's because we're defining it onto the class by using `self` on that line_
 
-
-## Questions
-
-- What is the difference between `self` on line 10 and `self` on line 13 in `recipe.rb`?
-- What is the purpose of the `Recipe.all` and `Restaurant.all` methods?
+_the Restaurant#previews method should be iterating through the returned array from the Restaurant#recipes method since it is already a list of the Restaurant's recipes. This makes the method a bit simpler because you don't have to do the additional `a.restaurant == self` conditional inside of this method if you're already using a filtered down list of recipes_
 
 ## Next Steps
-- A Restaurant has many Recipes
-- A Recipe belongs to a Restaurant
-- Restaurant#recipes should return a list of all the recipes that belong to that restaurant
-- Recipe#restaurant should return the restaurant that that recipe belongs to
-- Restaurant.highest_rated returns the restaurant with the highest rating
-- Restaurant.find_by_name receives an argument of `name` as a string and returns the restaurant with that name
-- Restaurant#recipe_previews returns a list of strings containing the first 14 characters of a recipe's description
+
+- make this a many to many. Make all necessary changes
