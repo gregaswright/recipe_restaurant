@@ -14,9 +14,14 @@ class Restaurant
         @@all
     end
 
-    def recipes
-       Recipe.all.select{|a| a.restaurant == self}
+    def restaurant_recipes
+        RestaurantRecipe.all.select{|a| a.restaurant == self}
     end
+
+    def recipes
+        self.restaurant_recipes.map{|a| a.recipe}.uniq
+    end
+
     
     def self.highest_rated
         self.all.max_by{|a| a.star_rating}
@@ -29,7 +34,7 @@ class Restaurant
     end
 
     def recipe_previews
-        Recipe.all.map {|a| a.restaurant == self && a.description[0...14]}
+        recipes.map {|a| a.description[0...14]}
     end
 
 end
